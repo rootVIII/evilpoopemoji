@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7sxe5xl5shk"]
+[gd_scene load_steps=8 format=3 uid="uid://dp7sxe5xl5shk"]
 
 [ext_resource type="Texture2D" uid="uid://bos7rridjkps1" path="res://gd_quest_kit/level/checkboard.png" id="1_cig4d"]
 [ext_resource type="PackedScene" uid="uid://cyj8k3jb0cxa7" path="res://gd_quest_kit/player/player.tscn" id="2_qxjo0"]
+[ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://gd_quest_kit/player/reticle.png" id="3_fly13"]
 
 [sub_resource type="Environment" id="Environment_pev5d"]
 background_mode = 1
@@ -84,3 +85,18 @@ material = SubResource("StandardMaterial3D_7l0sc")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qxjo0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0226383, 0.49999905, 2.2468567)
+
+[node name="Reticle" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fly13")
+expand_mode = 1
