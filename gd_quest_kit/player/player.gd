@@ -1,9 +1,39 @@
 extends CharacterBody3D
 
 const SPEED = 5.5
+var values : Array[String] = ["xx", "xxxxx", "x", "xxx"]
+
+func bubble_sort() -> void:
+	var is_sorted: bool = false
+	while not is_sorted:
+		is_sorted = true
+		for index in range(1, len(values)):
+			if values[index - 1] > values[index]:
+				var tmp : String = values[index - 1]
+				values[index - 1] = values[index]
+				values[index] = tmp
+				is_sorted = false
+
+func sum_int(digit : int) -> int:
+	var total : int = 0
+	while digit > 0:
+		total += digit % 10
+		digit = floor(digit / 10)
+	return total
+
+func get_values() -> Array[String]:
+	return values
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
+	var res1 : Array[String] = get_values()
+	print(res1)
+	bubble_sort()
+	res1 = get_values()
+	print(res1)
+	var res2 = sum_int(1234)
+	print(res2)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
