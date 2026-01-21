@@ -21,19 +21,28 @@ func sum_int(digit : int) -> int:
 		digit = floor(digit / 10)
 	return total
 
+func rotate_values(values : Array[Variant], rotation : int) -> Array[Variant]:
+	var data : Array[Variant] = []
+	data.resize(len(values))
+	for index in range(len(values)):
+		data[index] = values[(index - rotation) % len(values)] 
+	return data
+
 func get_values() -> Array[String]:
 	return values
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
-	var res1 : Array[String] = get_values()
-	print(res1)
-	bubble_sort()
-	res1 = get_values()
-	print(res1)
-	var res2 = sum_int(1234)
-	print(res2)
-	
+	#var res1 : Array[String] = get_values()
+	#print(res1)
+	#bubble_sort()
+	#res1 = get_values()
+	#print(res1)
+	#var res2 = sum_int(1234)
+	#print(res2)
+	var res3 : Array[Variant] = rotate_values(["a", "b", "c", "d", "e"], 4)
+	print(res3)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
